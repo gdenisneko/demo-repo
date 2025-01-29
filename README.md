@@ -1,2 +1,2 @@
-# demo-repo
-Demo repository for Git studying purposes
+# 🚀 Demo Repo 
+**A tutorial repository for experimenting with Git & GitHub** 

@@ -13,4 +13,5 @@ Just added an another line from directly from IDE
 - Continue experimenting. Used a clone comand with name  "test-name" ... Watching, how it wokrls
 - Test ```git status -s``` comand
 - Now, experiment with ```git diff``` comand
-- Added new clean ```login.html```
+- Added new clean ```login.html``` page
+- Test ```git commit --amend``` comand

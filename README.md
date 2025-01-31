@@ -11,3 +11,4 @@ Just added an another line from directly from IDE
 ## Update 31.01.2025
 
 - Continue experimenting. Used a clone comand with name  "test-name" ... Watching, how it wokrls
+- Test ```git status -s comand```

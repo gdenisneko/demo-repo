@@ -15,3 +15,4 @@ Just added an another line from directly from IDE
 - Now, experiment with ```git diff``` comand
 - Added new clean ```login.html``` page
 - Test ```git commit --amend``` comand
+- Test ```git tag -a``` 

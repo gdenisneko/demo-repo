@@ -16,7 +16,8 @@ Just added an another line from directly from IDE
 - Added new clean ```login.html``` page
 - Test ```git commit --amend``` comand
 - Test ```git tag -a``` 
-
-
 ## 📅 Update 01.02.2025
 - Test branching "testing"
+- This commit was added directly from main branch
+
+First attempt to resolve merge conflict.

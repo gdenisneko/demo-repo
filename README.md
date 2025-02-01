@@ -22,3 +22,4 @@ Just added an another line from directly from IDE
 - This commit was added directly from main branch
 - Text from ```name-1``` branch
 - Now, I'll change ```name-1``` to ```name-2``` and push it
+- Test ```git push origin main:new-test-name```

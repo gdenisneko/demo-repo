@@ -24,3 +24,7 @@ Just added an another line from directly from IDE
 - Now, I'll change ```name-1``` to ```name-2``` and push it
 - Test ```git push origin main:new-test-name```
 - Try to push main wthout ```git fetch origin``` before
+
+
+## 📅 Update 02.02.2025
+- Test white spaces before commit ```git diff --check```

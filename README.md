@@ -28,3 +28,6 @@ Just added an another line from directly from IDE
 
 ## 📅 Update 02.02.2025
 - Test white spaces before commit ```git diff --check```
+
+## 📅 Update 03.02.2025
+- Make the new branch to practice with patches.

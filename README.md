@@ -34,4 +34,6 @@ Just added an another line from directly from IDE
 - Test patch ```git format-patch -1```
 - Add line from test-patching
 - new line from test-patch branch
-- > 💎 After all manipulations it still working fine! AWESOME!
+
+> ## 💎
+> After all manipulations it still working fine! AWESOME!

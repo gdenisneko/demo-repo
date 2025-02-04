@@ -41,3 +41,4 @@ Just added an another line from directly from IDE
 
 ## 📅 Update 04.02.2025
 - Continue manipulations with links of following to others branches and even remote repos
+- Testing how to handle ```git stash```

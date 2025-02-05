@@ -1,5 +1,5 @@
 import time
 
 def printHello():
-    print("Hello, HUB!")
+    print("Hello, Folks!")
     return 0

@@ -47,3 +47,4 @@ Just added an another line from directly from IDE
 - Fixed README.md
 - Added tmp.py file for test
 - Set new comand: ```git config --local commit.template ~/.gitmessage.txt```
+- Applied ```... --local --unset``` and remove gitmessage.txt 

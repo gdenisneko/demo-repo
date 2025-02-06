@@ -50,4 +50,6 @@ Just added an another line from directly from IDE
 - Applied ```... --local --unset``` and remove gitmessage.txt 
 
 ## 📅 Update 06.02.2025
-> ⭐️ Another day with experiments...  
+- ⭐️ Another day with experiments. Let's GO!
+
+> Added small changes... 

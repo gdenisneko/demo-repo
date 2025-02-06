@@ -35,7 +35,7 @@ Just added an another line from directly from IDE
 - Add line from test-patching
 - new line from test-patch branch
 
-> ## 💎
+> 💎
 > After all manipulations it still working fine! AWESOME!
 
 
@@ -48,3 +48,6 @@ Just added an another line from directly from IDE
 - Added tmp.py file for test
 - Set new comand: ```git config --local commit.template ~/.gitmessage.txt```
 - Applied ```... --local --unset``` and remove gitmessage.txt 
+
+## 📅 Update 06.02.2025
+> ⭐️ Another day with experiments...  

@@ -53,3 +53,5 @@ Just added an another line from directly from IDE
 - ⭐️ Another day with experiments. Let's GO!
 
 > Added small changes... 
+
+- Another test for custom theme for zsh (oh-my-zsh)

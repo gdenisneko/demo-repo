@@ -4,12 +4,14 @@ import { Address, beginCell, Cell, Contract, contractAddress, ContractProvider, 
 export type MainContractConfig = {
     number: number;
     address: Address;
+    owner_address: Address; 
 };
 
 export function mainContractConfigToCell(config: MainContractConfig): Cell {
     return beginCell()
     .storeUint(config.number, 32)
     .storeAddress(config.address)
+    .storeAddress(config.owner_address)
     .endCell()
 }
 
@@ -33,7 +35,11 @@ export class MainContract implements Contract {
         value: bigint,
         increment_by: number,
     ) {
-        const msg_body = beginCell().storeUint(1, 32).storeUint(increment_by, 32).endCell();
+        const msg_body = beginCell()
+            .storeUint(1, 32)
+            .storeUint(increment_by, 32)
+            .endCell();
+
         await provider.internal(sender, {
             value,
             sendMode: SendMode.PAY_GAS_SEPARATELY,
@@ -46,6 +52,14 @@ export class MainContract implements Contract {
         return {
             number: stack.readNumber(),
             recent_sender: stack.readAddress(),
+            owner_adress: stack.readAddress(),
         };
+    }
+
+    async getBalance(provider: ContractProvider) {
+        const { stack } = await provider.get("balance", []);
+        return {
+            balance: stack.readNumber(),
+        }
     }
 }

@@ -47,5 +47,5 @@ export class MainContract implements Contract {
             number: stack.readNumber(),
             recent_sender: stack.readAddress(),
         };
-      }
+    }
 }

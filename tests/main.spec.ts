@@ -69,19 +69,72 @@ describe("main.fc contract test", () => {
         expect(balanceRequest.balance).toBeGreaterThan(toNano("4.99"));
     });
 
-    it("Should return Deposits funds as no command is sent", () => {
-        //tesst logic
+    it("Should return Deposits funds as no command is sent", async () => {
+        const senderWallet = await blockchain.treasury("sender");
+
+        const depositMessageResult = await myContract.sendNoCodeDeposit(
+            senderWallet.getSender(),
+            toNano("5")
+        );
+        
+        expect(depositMessageResult.transactions).toHaveTransaction({
+            from: senderWallet.address,
+            to: myContract.address,
+            success: false
+        });
+        
+        const balanceRequest = await myContract.getBalance();
+        expect(balanceRequest.balance).toEqual(0);
     });
 
-    it("Should return Deposits funds on behalf of owner", () => {
-        //tesst logic
+    it("Should return Deposits funds on behalf of owner", async () => {
+        const senderWallet = await blockchain.treasury("sender");
+        await myContract.sendDeposit(senderWallet.getSender(), toNano("5"));
+
+        const withdrawalRequestResult = await myContract.sendWithdrawalRequest(
+            ownerWallet.getSender(),
+            toNano("0.05"),
+            toNano(1)
+        );
+        
+        expect(withdrawalRequestResult.transactions).toHaveTransaction({
+            from: myContract.address,
+            to: ownerWallet.address,
+            success: true,
+            value: toNano(1),
+        });
     });
 
-    it("Fails to  withwrawal funds on behalf of non-owner", () => {
-        //tesst logic
+    it("Fails to  withwrawal funds on behalf of non-owner", async () => {
+        const senderWallet = await blockchain.treasury("sender");
+        await myContract.sendDeposit(senderWallet.getSender(), toNano("5"));
+
+        const withdrawalRequestResult = await myContract.sendWithdrawalRequest(
+            senderWallet.getSender(),
+            toNano("0.05"),
+            toNano(1)
+        );
+        
+        expect(withdrawalRequestResult.transactions).toHaveTransaction({
+            from: senderWallet.address,
+            to: myContract.address,
+            success: false,
+            exitCode: 103,
+        });
     });
 
-    it("Fails to  withwrawal funds because lack of balance", () => {
-        //tesst logic
+    it("Fails to  withwrawal funds because lack of balance", async () => {
+        const withdrawalRequestResult = await myContract.sendWithdrawalRequest(
+            ownerWallet.getSender(),
+            toNano("0.05"),
+            toNano(6)
+        );
+        
+        expect(withdrawalRequestResult.transactions).toHaveTransaction({
+            from: ownerWallet.address,
+            to: myContract.address,
+            success: false,
+            exitCode: 104,
+        });
     });
 });

@@ -50,4 +50,38 @@ describe("main.fc contract test", () => {
         expect(data.recent_sender.toString()).toBe(initWallet.address.toString());
         expect(data.number).toEqual(5);
     });
+
+    it("Successfully Deposits funds", async () => {
+        const senderWallet = await blockchain.treasury("sender");
+
+        const depositMessageResult = await myContract.sendDeposit(
+            senderWallet.getSender(),
+            toNano("5")
+        );
+
+        expect(depositMessageResult.transactions).toHaveTransaction({
+            from: senderWallet.address,
+            to: myContract.address,
+            success: true
+        });
+
+        const balanceRequest = await myContract.getBalance();
+        expect(balanceRequest.balance).toBeGreaterThan(toNano("4.99"));
+    });
+
+    it("Should return Deposits funds as no command is sent", () => {
+        //tesst logic
+    });
+
+    it("Should return Deposits funds on behalf of owner", () => {
+        //tesst logic
+    });
+
+    it("Fails to  withwrawal funds on behalf of non-owner", () => {
+        //tesst logic
+    });
+
+    it("Fails to  withwrawal funds because lack of balance", () => {
+        //tesst logic
+    });
 });

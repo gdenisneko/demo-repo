@@ -29,12 +29,7 @@ export class MainContract implements Contract {
         return new MainContract(address, init);
     }
 
-    async sendIncrement(
-        provider: ContractProvider,
-        sender: Sender,
-        value: bigint,
-        increment_by: number,
-    ) {
+    async sendIncrement(provider: ContractProvider, sender: Sender, value: bigint, increment_by: number){
         const msg_body = beginCell()
             .storeUint(1, 32)
             .storeUint(increment_by, 32)
@@ -44,6 +39,18 @@ export class MainContract implements Contract {
             value,
             sendMode: SendMode.PAY_GAS_SEPARATELY,
             body: msg_body,
+        });
+    }
+
+    async sendDeposit(provider: ContractProvider, sender: Sender, value: bigint){
+        const msg_body = beginCell()
+            .storeUint(2, 32)
+            .endCell();
+        
+        await provider.internal(sender, {
+            value,
+            sendMode: SendMode.PAY_GAS_SEPARATELY,
+            body:msg_body,
         });
     }
 

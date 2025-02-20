@@ -1,4 +1,4 @@
-import { address, Cell, toNano } from "ton-core";
+import { Cell, toNano } from "ton-core";
 import { hex } from "../build/main.compiled.json";
 import { Blockchain, SandboxContract, TreasuryContract } from "@ton-community/sandbox";
 import { MainContract } from "../wrappers/MainContract";
@@ -33,23 +33,21 @@ describe("main.fc contract test", () => {
 
     it("Should successfully increase counter in contract and get the proper most recent sender address", async () => {
 
-        const senderWallet = await blockchain.treasury("sender");
-
         const sentMessageResult = await myContract.sendIncrement(
-            senderWallet.getSender(),
+            initWallet.getSender(),
             toNano("0.05"),
-            Number(10),
+            Number(5),
         );
         
         expect(sentMessageResult.transactions).toHaveTransaction({
-            from: senderWallet.address,
+            from: initWallet.address,
             to: myContract.address,
             success: true,
         });
 
         const data = await myContract.getData();
 
-        expect(data.recent_sender.toString()).toBe(senderWallet.address.toString());
-        expect(data.number).toEqual(10);
+        expect(data.recent_sender.toString()).toBe(initWallet.address.toString());
+        expect(data.number).toEqual(5);
     });
 });

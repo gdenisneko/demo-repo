@@ -4,4 +4,4 @@
 I started use thie demo-repo as my backup learning process.
 
 Smart-constract development practice
-Current progress: chapter 4. Lesson 2 (Finished)
+Current progress: chapter 4. Lesson 4 (Finished)

@@ -30,10 +30,14 @@ export class MainContract implements Contract {
     }
 
     async sendDeploy(provider: ContractProvider, via: Sender, value: bigint){
+        const msg_body = beginCell()
+            .storeUint(1, 32)
+            .endCell();
+
         await provider.internal(via, {
             value,
             sendMode: SendMode.PAY_GAS_SEPARATELY,
-            body: beginCell().endCell(),
+            body: msg_body,
         });
     }
 

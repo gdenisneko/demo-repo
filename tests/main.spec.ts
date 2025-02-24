@@ -1,5 +1,4 @@
 import { Cell, toNano } from "ton-core";
-import { hex } from "../build/main.compiled.json";
 import { Blockchain, SandboxContract, TreasuryContract } from "@ton-community/sandbox";
 import { MainContract } from "../wrappers/MainContract";
 import { compile } from "@ton-community/blueprint";

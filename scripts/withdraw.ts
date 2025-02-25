@@ -3,18 +3,9 @@ import { MainContract } from "../wrappers/MainContract";
 import { address, toNano } from "ton-core";
 
 export async function run(provider: NetworkProvider) {
-    const codeCell = await compile("MainContract");
+    
+    // Old smart-contract (wihtout op == 4) - kQDVzGqve9HiJKmf1cDxnmBi5mRSbOdgPMo3WYdZvIHFKLeU  kQCuUvg78pocsbOKPPaMPxtaTvH3zH6fXlpxcQa75B09Ekn3
+    const myContract = provider.open(new MainContract(address(""))); // <== adress of our contract
+    await myContract.sendWithdrawalRequest(provider.sender(), toNano(0.1), toNano("0.09"));
 
-    const myContract = MainContract.createFromConfig(
-        {
-            number: 0,
-            address: address("kQDVzGqve9HiJKmf1cDxnmBi5mRSbOdgPMo3WYdZvIHFKLeU"),
-            owner_address: address("kQBMYGpCJCN7c9Yr8zRTpA6LO0YZn8F7ywbJLscjmgP5-qxJ"),
-        },
-        codeCell
-    );
-
-    const openContract = provider.open(myContract);
-
-    await openContract.sendWithdrawalRequest(provider.sender(), toNano("0.1"), toNano("0.03"));
 }

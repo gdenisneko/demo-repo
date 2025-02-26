@@ -1,0 +1,37 @@
+{
+  "name": "smart-contract",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@swc/core": "^1.10.15",
+    "@ton-community/blueprint": "^0.12.0",
+    "@ton-community/func-js": "^0.9.0",
+    "@ton-community/sandbox": "^0.11.0",
+    "@ton-community/test-utils": "^0.3.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.1",
+    "@types/qrcode-terminal": "^0.12.2",
+    "@types/qs": "^6.9.18",
+    "autoprefixer": "^10.4.20",
+    "jest": "^29.7.0",
+    "postcss": "^8.5.2",
+    "qrcode-terminal": "^0.12.0",
+    "qs": "^6.14.0",
+    "tailwindcss": "^3.4.17",
+    "ton": "^13.9.0",
+    "ton-core": "^0.53.0",
+    "ton-crypto": "^3.2.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "scripts": {
+    "test": "yarn jest"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "dependencies": {
+    "@orbs-network/ton-access": "^2.3.3",
+    "dotenv": "^16.4.7"
+  }
+}

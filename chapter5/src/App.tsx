@@ -1,12 +1,10 @@
 import './App.css';
 import { TonConnectButton } from '@tonconnect/ui-react';
 
-function App() {
+export default function App() {
   return (
     <div>
       <TonConnectButton />
     </div>
   );
 }
-
-export default App

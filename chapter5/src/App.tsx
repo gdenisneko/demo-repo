@@ -7,8 +7,6 @@ function App() {
   const {
     contract_address,
     counter_value,
-    recent_sender,
-    owner_adress,
     contract_balance,
     sendIncrement,
     sendDeposit,
